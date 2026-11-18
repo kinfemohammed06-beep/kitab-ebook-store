@@ -1,7 +1,6 @@
-export default function Logo({ light = false, compact = false, className = "" }: {
+export default function Logo({ compact = false, className = "" }: {
   light?: boolean; compact?: boolean; className?: string;
 }) {
-  if (compact) return <img src="/kitab-mark.svg" width={40} height={40} alt="Kitab" className={className || "h-10 w-10"} />;
-  return <img src={light ? "/kitab-logo-light.svg" : "/kitab-logo.svg"} width={244} height={64}
-    alt="Kitab — Ethiopian ebooks" className={className || "h-11 w-auto"} />;
+  return <img src="/kitab-logo.png" width={480} height={246} alt="Kitab — Ethiopian ebooks"
+    className={className || (compact ? "h-10 w-auto" : "h-11 w-auto")} />;
 }
