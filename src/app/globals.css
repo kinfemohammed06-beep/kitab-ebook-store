@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: light; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  ::selection { @apply bg-forest/15 text-forest-900; }
+  h1, h2, h3, h4 { @apply font-display tracking-tight text-ink; }
+  p { @apply leading-relaxed; }
+  a, button, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+  :focus-visible { @apply outline-none ring-2 ring-forest ring-offset-2 ring-offset-paper; }
+  img { @apply max-w-full; }
+  [type="checkbox"], [type="radio"] { @apply h-4 w-4 accent-forest; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  }
+}
+
+@layer components {
+  /* Buttons -------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex min-h-[44px] items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold
+           transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary { @apply bg-forest text-ivory shadow-soft hover:-translate-y-0.5 hover:bg-forest-700 hover:shadow-glow; }
+  .btn-outline { @apply border border-forest/20 bg-surface text-forest hover:border-forest/50 hover:bg-forest-50; }
+  .btn-gold { @apply bg-gold text-forest-950 shadow-soft hover:-translate-y-0.5 hover:bg-gold-300 hover:shadow-glow; }
+  .btn-ghost { @apply text-forest hover:bg-forest-50; }
+  .btn-danger { @apply border border-red-200 bg-red-50 text-red-700 hover:bg-red-100; }
+  .btn-soft { @apply bg-forest-50 text-forest-800 hover:bg-forest-100; }
+  .btn-sm { @apply min-h-0 rounded-lg px-3 py-1.5 text-xs; }
+  .btn-icon { @apply inline-flex h-10 w-10 items-center justify-center rounded-xl text-forest transition hover:bg-forest-50; }
+
+  /* Forms ---------------------------------------------------------------- */
+  .field {
+    @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-sm text-ink shadow-sm
+           placeholder:text-ink-soft transition focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15;
+  }
+  .field-sm { @apply rounded-lg px-3 py-1.5 text-sm; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-ink-muted; }
+
+  /* Layout & surfaces ---------------------------------------------------- */
+  .page { @apply mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8; }
+  .page-narrow { @apply mx-auto w-full max-w-3xl px-4 py-10 sm:px-6 sm:py-14; }
+  .card { @apply rounded-2xl border border-line bg-surface shadow-card; }
+  .card-pad { @apply card p-5 sm:p-6; }
+  .card-hover { @apply transition duration-300 hover:-translate-y-0.5 hover:border-forest/20 hover:shadow-card-hover; }
+  .surface-soft { @apply rounded-2xl border border-forest/10 bg-forest-50/60; }
+  .eyebrow { @apply inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.18em] text-forest-600; }
+  .section-title { @apply font-display text-section text-ink; }
+  .divider { @apply h-px w-full bg-line; }
+  .prose-kitab { @apply font-serif leading-[1.85] text-ink-muted; }
+
+  /* Badges & chips ------------------------------------------------------- */
+  .badge { @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold; }
+  .badge-forest { @apply badge bg-forest-50 text-forest-700; }
+  .badge-gold { @apply badge bg-gold-100 text-gold-600; }
+  .badge-muted { @apply badge bg-ink/5 text-ink-muted; }
+  .badge-success { @apply badge bg-emerald-50 text-emerald-700; }
+  .badge-warning { @apply badge bg-amber-50 text-amber-700; }
+  .badge-danger { @apply badge bg-red-50 text-red-700; }
+  .chip { @apply inline-flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-ink-muted transition hover:border-forest/40 hover:bg-forest-50 hover:text-forest; }
+
+  /* Data tables ---------------------------------------------------------- */
+  .table-wrap { @apply w-full overflow-x-auto rounded-2xl border border-line bg-surface shadow-card; }
+  .data-table { @apply w-full min-w-[560px] text-left text-sm; }
+  .data-table thead { @apply bg-forest-50/70 text-xs uppercase tracking-wider text-ink-muted; }
+  .data-table th { @apply whitespace-nowrap px-4 py-3 font-semibold; }
+  .data-table td { @apply px-4 py-3 align-middle; }
+  .data-table tbody tr { @apply border-t border-line transition hover:bg-paper; }
+
+  /* Misc ----------------------------------------------------------------- */
+  .link-underline { @apply font-medium text-forest underline decoration-forest/30 underline-offset-4 transition hover:decoration-forest; }
+  .scroll-thin { scrollbar-width: thin; scrollbar-color: rgba(24,60,50,0.25) transparent; }
+  .scroll-thin::-webkit-scrollbar { height: 5px; width: 5px; }
+  .scroll-thin::-webkit-scrollbar-thumb { @apply rounded-full bg-forest/25; }
+  .paper-pattern {
+    background-image: radial-gradient(rgba(24, 60, 50, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
